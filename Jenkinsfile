@@ -1,2 +1,26 @@
 pipeline {
- agent any stages { stage('Clone') { steps { echo 'Cloning repository...' } } stage('Build') { steps { bat 'mvn clean compile' } } stage('Test') { steps { bat 'mvn test' } } stage('Package') { steps { bat 'mvn package' } } } }
+    agent any
+    stages {
+        stage('Clone') {
+            steps {
+                echo 'Cloning repository...'
+            }
+        }
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+        stage('Package') {
+            steps {
+                bat 'mvn package'
+            }
+        }
+    }
+}
+
